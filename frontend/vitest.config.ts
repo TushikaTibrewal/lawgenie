@@ -1,16 +1,10 @@
-import { defineConfig } from "vitest/config";
-import react from "@vitejs/plugin-react-swc";
-import path from "path";
+import { createLovableConfig } from "lovable-agent-playwright-config/config";
 
-export default defineConfig({
-  plugins: [react()],
-  test: {
-    environment: "jsdom",
-    globals: true,
-    setupFiles: ["./src/test/setup.ts"],
-    include: ["src/**/*.{test,spec}.{ts,tsx}"],
-  },
-  resolve: {
-    alias: { "@": path.resolve(__dirname, "./src") },
-  },
+export default createLovableConfig({
+  // Add your custom playwright configuration overrides here
+  // Example:
+  // timeout: 60000,
+  // use: {
+  //   baseURL: 'http://localhost:3000',
+  // },
 });
